@@ -14,7 +14,7 @@ namespace grouper
             int k = 10;
             
             //number of interations for second solutions
-            int x = 10000;
+            int x = 1000000;
                 
             //Create a dataset of n students
             var stormerHeap = new StormerHeap();
