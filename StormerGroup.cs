@@ -45,5 +45,10 @@ namespace grouper
                 score += s.history.Where(h => stormerIds.Contains(h)).Count();
             }
         }
+        
+        public void ResetGroup(){
+            stormers.Clear();
+            score = 0;
+        }
     }
 }

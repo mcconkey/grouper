@@ -7,8 +7,14 @@ namespace grouper
     {
         static void Main(string[] args)
         {
-            List<StormerGroup> groups = new List<StormerGroup>();
+            var groups = new List<StormerGroup>();
+            var solution = new SolutionSet();
+            
+            //number of groups
             int k = 10;
+            
+            //number of interations for second solutions
+            int x = 10000;
                 
             //Create a dataset of n students
             var stormerHeap = new StormerHeap();
@@ -32,39 +38,37 @@ namespace grouper
                 g.RecordHistory();
             }
           
-            //put all the students back in the heap
-            stormerHeap.HeapStormersFromGroups(groups);
-            
-            //shuffle students again
-            stormerHeap.Shuffle();
-            
-            //distribute them again
-            stormerHeap.Distribute(groups);
-            
-            //score the group
-            foreach(var g in groups){
-                g.ScoreGroup();
-                g.PrintGroup();
-                g.RecordHistory();
+            for(int i = 0; i < x; i++){
+                var totalScore = 0;
+                //put all the students back in the heap
+                stormerHeap.HeapStormersFromGroups(groups);
+                
+                foreach(var g in groups){
+                    g.ResetGroup();
+                }
+                
+                //shuffle students again
+                stormerHeap.Shuffle();
+                
+                //distribute them again
+                stormerHeap.Distribute(groups);
+                
+                //score the group
+                foreach(var g in groups){
+                    g.ScoreGroup();
+                    //g.PrintGroup();
+                  //  g.RecordHistory();
+                }    
+                totalScore = groups.Select(g => g.score).Sum();
+                //Console.WriteLine($"Iteration {i} the score was: {totalScore}");
+                
+                if(solution.score > totalScore || solution.groups.Count == 0){
+                    solution.score = totalScore;
+                    solution.groups = groups;
+                }
             }
-            
-            
-            //put all the students back in the heap
-            stormerHeap.HeapStormersFromGroups(groups);
-            
-            //shuffle students again
-            stormerHeap.Shuffle();
-            
-            //distribute them again
-            stormerHeap.Distribute(groups);
-            
-             //score the group
-            foreach(var g in groups){
-                g.ScoreGroup();
-                g.PrintGroup();
-                g.RecordHistory();
-            }
-            
+
+            Console.WriteLine($"After {x} iterations the best score was: {solution.score}");
             
         }
     }
