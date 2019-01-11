@@ -9,7 +9,7 @@ namespace grouper
     {
         public string name = "";
         public int id = 0;
-        List<int> history = new List<int>();
+        public List<int> history = new List<int>();
         
         public Stormer(string n, int i = 0){
             name = n;
