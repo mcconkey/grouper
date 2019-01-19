@@ -14,7 +14,7 @@ namespace grouper
             int k = 10;
             
             //number of interations for second solutions
-            int x = 1000000;
+            int x = 1000;
                 
             //Create a dataset of n students
             var stormerHeap = new StormerHeap();
@@ -69,6 +69,7 @@ namespace grouper
             }
 
             Console.WriteLine($"After {x} iterations the best score was: {solution.score}");
+            Console.ReadKey();
             
         }
     }

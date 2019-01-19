@@ -1,8 +1,124 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{CA314BEF-EA59-4351-A2FE-C8EE00DDC3EF}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>ConsoleApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
   </PropertyGroup>
-
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>grouper</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".bowerrc" />
+    <None Include=".gitignore" />
+    <None Include=".git\config" />
+    <None Include=".git\description" />
+    <None Include=".git\HEAD" />
+    <None Include=".git\hooks\applypatch-msg.sample" />
+    <None Include=".git\hooks\commit-msg.sample" />
+    <None Include=".git\hooks\post-update.sample" />
+    <None Include=".git\hooks\pre-applypatch.sample" />
+    <None Include=".git\hooks\pre-commit.sample" />
+    <None Include=".git\hooks\pre-push.sample" />
+    <None Include=".git\hooks\pre-rebase.sample" />
+    <None Include=".git\hooks\pre-receive.sample" />
+    <None Include=".git\hooks\prepare-commit-msg.sample" />
+    <None Include=".git\hooks\update.sample" />
+    <None Include=".git\index" />
+    <None Include=".git\info\exclude" />
+    <None Include=".git\logs\HEAD" />
+    <None Include=".git\logs\refs\heads\master" />
+    <None Include=".git\logs\refs\remotes\origin\HEAD" />
+    <None Include=".git\objects\00\b76dbe171c0f6bd8534989b860113aa77f273a" />
+    <None Include=".git\objects\1a\cce528b83954748785cdf6a6ee5014c0e1f26a" />
+    <None Include=".git\objects\1b\5e3fb0a2bb00077414229eab6a100a63d83f6d" />
+    <None Include=".git\objects\2a\7607c592b23a55c01787c89cbbb7642a70d558" />
+    <None Include=".git\objects\2f\274aa7bc183e4302e3ef6aaaba61efadbe6605" />
+    <None Include=".git\objects\3c\e699aac70162ff8d981abd17c383c30ea8014e" />
+    <None Include=".git\objects\3e\e3ade42ce799f3bafffa2fa7f65d564a6a704e" />
+    <None Include=".git\objects\45\2b99407a7c5e8b46438e945f55b27771e6df31" />
+    <None Include=".git\objects\4c\79ce3fc69b82b13637170e0d98a85a3726b204" />
+    <None Include=".git\objects\52\33fcb76457c0944f16b3439c381da94abeeda4" />
+    <None Include=".git\objects\54\737f30d50dda157410fd6536ee72060f8408ca" />
+    <None Include=".git\objects\55\7ab9777de9e34940d5e819a99d6ad0fc33f05e" />
+    <None Include=".git\objects\65\33aee27c4141174e928991eaa21ae8599e5b5d" />
+    <None Include=".git\objects\6a\d34189365d2c085869611dfa650bcd7cfd7fcb" />
+    <None Include=".git\objects\75\231d30f6e6390be0d26eb8cc562f54ed17f6ae" />
+    <None Include=".git\objects\78\d4e9d826507c0c7b433addd651de9305312e4c" />
+    <None Include=".git\objects\79\fef42ea52a43421c031f880317c1f144b4a079" />
+    <None Include=".git\objects\8b\586b921e9314800db6b9694505979435578267" />
+    <None Include=".git\objects\8e\047a019c35ec2b1d8a0744afe68ceec5846148" />
+    <None Include=".git\objects\9f\b7957e4d30229fbb2d81c7e23de4f0b308b702" />
+    <None Include=".git\objects\a7\f0e60d7f703dc4eee82be03d623c51ffa34ddd" />
+    <None Include=".git\objects\af\a7a78988e1fcad7664e93d53938309fb76aafb" />
+    <None Include=".git\objects\b0\c7e04c306c96fe2b75899d3bfd2ee6f0f68462" />
+    <None Include=".git\objects\b8\9e541b5d60f85dbb51cb9019d4e7cb9e317be4" />
+    <None Include=".git\objects\e1\355c99050b6fbf50005d9ba0ae3ba97dc05caf" />
+    <None Include=".git\objects\e8\81c21329f0c67604ce8129009df475cc7bca02" />
+    <None Include=".git\objects\e9\84712d764f94daed93434da843bf48af6b3ea6" />
+    <None Include=".git\objects\eb\fcc7e4a148bbcf4e7414b354ffc8057bf00cdc" />
+    <None Include=".git\objects\ef\32a16eeb004597a0d6dea87e8c64db9e2e56ca" />
+    <None Include=".git\objects\f0\0e32304f504a9c700958bb07dcd029c102b253" />
+    <None Include=".git\objects\f6\1f741c0f0d011e265983478844f2880a47606b" />
+    <None Include=".git\objects\f8\56fb94c5f58720933766fa8b4597dfc9491e07" />
+    <None Include=".git\packed-refs" />
+    <None Include=".git\refs\heads\master" />
+    <None Include=".git\refs\remotes\origin\HEAD" />
+    <None Include=".vs\config\applicationhost.config" />
+    <None Include=".vs\grouper\v15\.suo" />
+    <None Include=".vs\ProjectSettings.json" />
+    <None Include=".vs\slnx.sqlite" />
+    <None Include=".vs\VSWorkspaceState.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ListPop.cs" />
+    <Compile Include="ListShuffle.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="SolutionSet.cs" />
+    <Compile Include="Stormer.cs" />
+    <Compile Include="StormerGroup.cs" />
+    <Compile Include="StormerHeap.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".git\objects\info\" />
+    <Folder Include=".git\objects\pack\" />
+    <Folder Include=".git\refs\tags\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
 </Project>
